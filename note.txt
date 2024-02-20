@@ -1,0 +1,20 @@
+Basic functionalities:
+
+Pre-requisite:
+- pip install Flask
+- pip install Flask-SQLAlchemy
+- pip install mysqlclient
+
+To run application 
+- flask run --debug
+
+1.Create web server with Python x Flask and integrate with Flask, FlaskWTF, Jinja2 and MySQL Database
+2.Set route paths
+3.Login and Register
+    - Add new data for new user
+    - query data to login
+4.Basic CRUD users
+    - Get users data
+    - Add new user
+    - Edit user detail
+    - Delete user

@@ -1,0 +1,68 @@
+<mxfile host="65bd71144e">
+    <diagram id="GBEZf7GyYmm0-5xm0Ph-" name="Page-1">
+        <mxGraphModel dx="694" dy="585" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="3" value="Sample Web Application&lt;br style=&quot;font-size: 19px;&quot;&gt;Full-Stack Python Web" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Sarabun;fontSize=19;" parent="1" vertex="1">
+                    <mxGeometry x="70" y="60" width="280" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" value="HTML&lt;br style=&quot;font-size: 19px;&quot;&gt;CSS&lt;br style=&quot;font-size: 19px;&quot;&gt;JavaScript&lt;br style=&quot;font-size: 19px;&quot;&gt;Tailwind" style="rounded=1;whiteSpace=wrap;html=1;arcSize=3;fontFamily=Sarabun;fontSize=19;" parent="1" vertex="1">
+                    <mxGeometry x="170" y="700" width="140" height="250" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="Frontend" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Sarabun;fontSize=19;" parent="1" vertex="1">
+                    <mxGeometry x="160" y="630" width="160" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="Backend" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Sarabun;fontSize=19;" parent="1" vertex="1">
+                    <mxGeometry x="530" y="480" width="160" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="13" style="edgeStyle=none;html=1;exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="7" target="11" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="14" style="edgeStyle=none;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="7" target="12" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="7" value="Python&lt;br style=&quot;font-size: 19px;&quot;&gt;Flask" style="rounded=1;whiteSpace=wrap;html=1;arcSize=6;fontFamily=Sarabun;fontSize=19;" parent="1" vertex="1">
+                    <mxGeometry x="540" y="720" width="140" height="250" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" value="Database" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Sarabun;fontSize=19;" parent="1" vertex="1">
+                    <mxGeometry x="1220" y="370" width="160" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" value="MySQL" style="rounded=1;whiteSpace=wrap;html=1;arcSize=6;fontFamily=Sarabun;fontSize=19;" parent="1" vertex="1">
+                    <mxGeometry x="1230" y="550" width="140" height="250" as="geometry"/>
+                </mxCell>
+                <mxCell id="10" value="Routers" style="sketch=0;aspect=fixed;html=1;points=[];align=center;image;fontSize=12;image=img/lib/mscae/Route_Filter.svg;" parent="1" vertex="1">
+                    <mxGeometry x="520" y="680" width="83.33" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="15" style="edgeStyle=none;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.25;entryDx=0;entryDy=0;" parent="1" source="11" target="9" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="18" value="query data" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="15" vertex="1" connectable="0">
+                    <mxGeometry x="-0.461" y="-2" relative="1" as="geometry">
+                        <mxPoint x="38" y="-1" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="11" value="Login" style="rounded=1;whiteSpace=wrap;html=1;arcSize=50;fontFamily=Sarabun;fontSize=19;" parent="1" vertex="1">
+                    <mxGeometry x="860" y="590" width="140" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="17" style="edgeStyle=none;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;" parent="1" source="12" target="9" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="19" value="insert data" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="17" vertex="1" connectable="0">
+                    <mxGeometry x="-0.1913" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="12" value="Register" style="rounded=1;whiteSpace=wrap;html=1;arcSize=50;fontFamily=Sarabun;fontSize=19;" parent="1" vertex="1">
+                    <mxGeometry x="860" y="710" width="140" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="16" value="Database" style="image;html=1;image=img/lib/clip_art/computers/Database_128x128.png" parent="1" vertex="1">
+                    <mxGeometry x="1330" y="500" width="80" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="21" value="Jinja2 Template" style="rounded=0;whiteSpace=wrap;html=1;fontSize=18;" parent="1" vertex="1">
+                    <mxGeometry x="150" y="1000" width="170" height="60" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
