@@ -1,7 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for, flash
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField
-from datetime import datetime
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__) 
@@ -10,7 +9,7 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = 'my_secret_key'
 
 # Configure MySQL connection
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:@localhost/daily_expenses' # configure your OWN database system
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:@localhost/db_development' # configure your OWN database system
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 # Initialize SQLAlchemy
@@ -18,20 +17,20 @@ db = SQLAlchemy(app)
 
 # Define models
 class Users(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
+    userID = db.Column(db.String(80), primary_key=True)
+    uuid = db.Column(db.String(80), unique=True, nullable=True)
     username = db.Column(db.String(80), unique=True, nullable=True)
     password = db.Column(db.String(80), unique=True, nullable=True)
-    create_date = db.Column(db.DateTime, default=datetime.utcnow, nullable=True)
-    last_login = db.Column(db.DateTime, default=datetime.utcnow, nullable=True)
+    status = db.Column(db.String(80), unique=True, nullable=True)
     
 class UserForm(FlaskForm):
-    username = StringField("Enter Username..")
-    password = StringField("Enter Password..")
+    username = StringField("")
+    password = StringField("")
     submit = SubmitField("Submit")
 
 class LoginForm(FlaskForm):
-    username = StringField("Enter Username..")
-    password = StringField("Enter Password..")
+    username = StringField("")
+    password = StringField("")
     submit = SubmitField("Submit")
 
 # define app router
@@ -47,6 +46,8 @@ def about():
 @app.route("/add-new", methods=['GET', 'POST'])
 def userPage():
     # define and send params
+    # todo
+    # implement uuid and userid generator when creating a new user
     addNewForm = UserForm()
     if addNewForm.validate_on_submit():
         if request.method == 'POST':
@@ -66,7 +67,7 @@ def users():
     return render_template("users.html", users=users)
 
 # Edit
-@app.route("/edit-user/<int:user_id>", methods=['GET', 'POST'])
+@app.route("/edit-user/<string:user_id>", methods=['GET', 'POST'])
 def edit_user(user_id):
     user = Users.query.get_or_404(user_id)
     form = UserForm(obj=user)
@@ -79,13 +80,17 @@ def edit_user(user_id):
     return render_template("edit-user.html", form=form)
 
 # Delete
-@app.route("/delete-user/<int:user_id>", methods=['POST'])
+@app.route("/delete-user/<string:user_id>", methods=['POST'])
 def delete_user(user_id):
     user = Users.query.get_or_404(user_id)
     db.session.delete(user)
     db.session.commit()
     flash('User deleted successfully!', 'success')
     return redirect(url_for('users'))
+
+@app.route("/admin")
+def admin():
+    return render_template("admin.html")
 
 @app.route("/login", methods=['GET', 'POST'])
 def login():
@@ -98,7 +103,7 @@ def login():
         if user:
             if password == user.password:
                 flash('Login successful!', 'success')
-                return redirect(url_for('userPage'))  # Redirect to the desire page
+                return redirect(url_for('admin'))  # Redirect to the desire page
             else:
                 flash('Incorrect password. Please try again.', 'error')
         else:
