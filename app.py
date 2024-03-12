@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for, flash
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField
 from flask_sqlalchemy import SQLAlchemy
+from models import registeruser
 
 app = Flask(__name__) 
 
@@ -112,6 +113,16 @@ def login():
 
 @app.route("/register")
 def register():
+    createUser = registeruser.NewUserForm()
+    if createUser.validate_on_submit():
+        if request.method == 'POST':
+            new_user = registeruser(
+                username=request.form['username'],
+                password=request.form['password'],
+            )
+            db.session.add(new_user)
+            db.session.commit()
+        createUser = registeruser.NewUserForm()
     return render_template("register.html")
 
 if (__name__) == "__main__":
