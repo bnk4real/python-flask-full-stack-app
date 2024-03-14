@@ -1,4 +1,5 @@
 from wtforms import StringField, SubmitField
+from flask_wtf import FlaskForm
 
 class RegisterNewUser():
     FirstName: str
@@ -8,10 +9,10 @@ class RegisterNewUser():
     ConfirmPass: str
 
 
-class NewUserForm():
+class NewUserForm(FlaskForm):
     FirstName = StringField("")
     LastName = StringField("")
     EmailAddress = StringField("")
     Password = StringField("")
-    ConfirmPass: StringField
+    ConfirmPass = StringField("")
     submit = SubmitField("Submit")

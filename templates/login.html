@@ -9,11 +9,11 @@
             <form method="POST">
                 {{loginForm.hidden_tag()}}
                 <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">Email address</label>
+                    <label for="exampleInputEmail1" class="form-label">Username:</label>
                     {{ loginForm.username(class="form-control", id="exampleInputEmail1", aria_describedby="emailHelp") }}
                 </div>
                 <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label">Password</label>
+                    <label for="exampleInputPassword1" class="form-label">Password:</label>
                     {{ loginForm.password(class="form-control", id="exampleInputPassword1") }}
                 </div>
                 {{ loginForm.submit(class="btn btn-primary") }}
