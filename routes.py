@@ -5,6 +5,9 @@ from wtforms import StringField, SubmitField
 from models import registeruser, loginform
 from models import usersform as Users
 from database import database
+from services import addnewuser
+from services import login as newLogin
+from services import register as newRegister
 
 # # Define models
 # class Users(db.Model):
@@ -34,14 +37,15 @@ def about():
 
 @app.route("/add-new", methods=['GET', 'POST'])
 def userPage():
-    addNewForm = UserForm()
-    if addNewForm.validate_on_submit():
-        new_user = UserForm(
-            username=request.form['username'],
-            password=request.form['password'],
-        )
-        database.db.session.add(new_user)
-        database.db.session.commit()
+    # addNewForm = UserForm()
+    # if addNewForm.validate_on_submit():
+    #     new_user = UserForm(
+    #         username=request.form['username'],
+    #         password=request.form['password'],
+    #     )
+    #     database.db.session.add(new_user)
+    #     database.db.session.commit()
+    addNewForm = addnewuser.AddNewUser()
     return render_template("add-user.html", addNewForm=addNewForm)
 
 @app.route("/users")
@@ -75,30 +79,35 @@ def admin():
 
 @app.route("/login", methods=['GET', 'POST'])
 def login():
-    loginForm = loginform.LoginForm()
-    if loginForm.validate_on_submit():
-        username = loginForm.username.data
-        password = loginForm.password.data
-        user = Users.Users.query.filter_by(username=username).first()
-        if user:
-            if password == user.password:
-                flash('Login successful!', 'success')
-                return redirect(url_for('admin'))
-            else:
-                flash('Incorrect password. Please try again.', 'error')
-        else:
-            flash('Username not found. Please register an account.', 'error')
+    # loginForm = loginform.LoginForm()
+    # if loginForm.validate_on_submit():
+    #     username = loginForm.username.data
+    #     password = loginForm.password.data
+    #     user = Users.Users.query.filter_by(username=username).first()
+    #     if user:
+    #         if password == user.password:
+    #             flash('Login successful!', 'success')
+    #             return redirect(url_for('admin'))
+    #         else:
+    #             flash('Incorrect password. Please try again.', 'error')
+    #     else:
+    #         flash('Username not found. Please register an account.', 'error')
+    loginForm = newLogin.Login()
     return render_template("login.html", loginForm=loginForm)
 
 @app.route("/register")
 def register():
-    createUser = registeruser.NewUserForm()
-    if createUser.validate_on_submit():
-        new_user = registeruser(
-            username=request.form['username'],
-            password=request.form['password'],
-        )
-        Users.Users.session.add(new_user)
-        Users.Users.session.commit()
-        createUser = registeruser.NewUserForm()
-    return render_template("register.html")
+    # createUser = registeruser.NewUserForm()
+    # if createUser.validate_on_submit():
+    #     new_user = registeruser(
+    #         firstName = request.form['username'], # TODO add new field in database
+    #         lastName = request.form['username'], # TODO add new field in database
+    #         email = request.form['username'], # TODO add new field in database
+    #         username = request.form['username'], # TODO add new field in database
+    #         password = request.form['password'], # TODO add new field in database
+    #         confirmPassword = request.form['username'], # TODO add new field in database
+    #     )
+    #     Users.Users.session.add(new_user)
+    #     Users.Users.session.commit()
+    createUser = newRegister.RegisterNewUser()
+    return render_template("register.html", register = createUser)
