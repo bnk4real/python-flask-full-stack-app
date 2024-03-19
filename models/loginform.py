@@ -1,7 +1,7 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField
+from wtforms import StringField, PasswordField,SubmitField
 
 class LoginForm(FlaskForm):
     username = StringField("")
-    password = StringField("")
+    password = PasswordField("Password")
     submit = SubmitField("Submit")

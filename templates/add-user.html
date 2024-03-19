@@ -9,6 +9,11 @@
                 <form method="POST">
                     {{addNewForm.hidden_tag()}}
                     <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Email</label>
+                        {{ addNewForm.email(class="form-control", id="exampleInputEmail1", aria_describedby="emailHelp")
+                        }}
+                    </div>
+                    <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Username</label>
                         {{ addNewForm.username(class="form-control", id="exampleInputEmail1", aria_describedby="emailHelp")
                         }}
@@ -16,6 +21,16 @@
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label">Password</label>
                         {{ addNewForm.password(class="form-control", id="exampleInputPassword1") }}
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">First Name</label>
+                        {{ addNewForm.firstname(class="form-control", id="exampleInputEmail1", aria_describedby="emailHelp")
+                        }}
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Last Name</label>
+                        {{ addNewForm.lastname(class="form-control", id="exampleInputEmail1", aria_describedby="emailHelp")
+                        }}
                     </div>
                     {{ addNewForm.submit(class="btn btn-primary") }}
                 </form>
