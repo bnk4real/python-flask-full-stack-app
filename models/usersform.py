@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField
+from wtforms import StringField, PasswordField, SubmitField
 from database import database
 
 class Users(database.db.Model):
@@ -15,7 +15,7 @@ class UserForm(FlaskForm):
     uuid = StringField("")
     email = StringField("")
     username = StringField("")
-    password = StringField("")
+    password = PasswordField("")
     firstname = StringField("")
     lastname = StringField("")
     submit = SubmitField("Submit")
