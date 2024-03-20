@@ -11,8 +11,7 @@ To run application
 1.Create web server with Python x Flask and integrate with Flask, FlaskWTF, Jinja2 and MySQL Database
 2.Set route paths
     - Separate Services from route
-    - Consider controller
-3.Login and Register -> Doing
+3.Login
     - query data to login
     - Add new data for new user
 4.Basic CRUD users
